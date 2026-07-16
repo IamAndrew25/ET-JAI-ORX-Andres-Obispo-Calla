@@ -1,0 +1,70 @@
+NEXO ANDINO CAPITAL S.A.C.
+DOCUMENTO: PERFIL CORPORATIVO, GOBIERNO Y POLÍTICA DE INVERSIÓN
+Código documental: NAC-CORP-001
+Vigencia: 01 de enero de 2026
+Moneda de reporte: PEN
+
+1. PERFIL CORPORATIVO
+
+Nexo Andino Capital S.A.C. es una administradora de inversiones con sede operativa en Lima. La compañía gestiona
+portafolios de renta fija, activos mixtos, inversiones alternativas y mandatos discrecionales para
+clientes institucionales, empresas y patrimonios privados.
+
+La organización inició operaciones en 2018. Al cierre de junio de 2026 administra activos por
+PEN 512,0 millones y atiende a 1.248 clientes. El patrimonio administrado se distribuye entre
+cuatro estrategias identificadas mediante códigos únicos.
+
+2. LÍNEAS DE NEGOCIO Y CÓDIGOS
+
+NAC-RF: Fondo Horizonte Renta Fija. Objetivo principal: preservación de capital e ingresos
+recurrentes. Horizonte sugerido: 12 meses o más. Nivel de riesgo: bajo-moderado.
+
+NAC-MX: Fondo Vector Mixto. Objetivo principal: crecimiento balanceado mediante renta fija
+y renta variable. Horizonte sugerido: 36 meses o más. Nivel de riesgo: moderado.
+
+NAC-ALT: Fondo Cumbre Alternativos. Objetivo principal: apreciación de capital mediante
+infraestructura, private equity y deuda privada. Horizonte sugerido: 60 meses o más.
+Nivel de riesgo: alto.
+
+NAC-MD: Mandatos Discrecionales. Carteras personalizadas para inversionistas con patrimonio
+invertible superior a PEN 2,0 millones. Nivel de riesgo definido en el contrato de cada mandato.
+
+3. GOBIERNO DE INVERSIÓN
+
+El Directorio aprueba el apetito de riesgo y los límites globales. El Comité de Inversiones se reúne
+cada semana y aprueba cambios tácticos de asignación. El Comité de Riesgos se reúne mensualmente
+y revisa liquidez, concentración, riesgo de mercado, riesgo de crédito y cumplimiento.
+
+Toda decisión de inversión debe registrar: código de estrategia, clase de activo, emisor,
+contraparte, moneda, tesis de inversión, límite aplicable y responsable de aprobación.
+
+4. LÍMITES GENERALES
+
+- Exposición máxima por emisor corporativo: 8% del patrimonio de cada estrategia.
+- Exposición máxima por grupo económico: 12% del patrimonio de cada estrategia.
+- Exposición agregada a instrumentos sin grado de inversión: 10% en NAC-RF y 20% en NAC-MX.
+- Exposición mínima a activos liquidables en cinco días: 70% en NAC-RF y 55% en NAC-MX.
+- Exposición máxima a moneda extranjera sin cobertura: 15% en NAC-RF y 25% en NAC-MX.
+- Inversiones alternativas nuevas requieren opinión previa de Riesgos y Cumplimiento.
+- Ningún fondo puede invertir en un activo restringido por listas de sanciones o por conflicto
+  de interés no mitigado.
+
+5. VALORIZACIÓN Y DESEMPEÑO
+
+Los instrumentos líquidos se valorizan diariamente con precios de mercado. Los activos privados
+se valorizan trimestralmente mediante flujo descontado, múltiplos comparables o tasación
+independiente. El rendimiento se presenta neto de comisiones de administración y antes de
+impuestos personales del inversionista.
+
+Los benchmarks oficiales para 2026 son:
+- NAC-RF: índice soberano y corporativo local de duración corta.
+- NAC-MX: 60% índice de renta fija y 40% índice bursátil diversificado.
+- NAC-ALT: inflación anual más 6 puntos porcentuales.
+- NAC-MD: benchmark individual establecido en el contrato.
+
+
+6. RESPONSABILIDAD DOCUMENTAL
+
+Propietario: Gerencia de Inversiones.
+Revisión: Riesgos, Cumplimiento y Finanzas.
+Periodicidad: anual o cuando cambien los límites aprobados por el Directorio.

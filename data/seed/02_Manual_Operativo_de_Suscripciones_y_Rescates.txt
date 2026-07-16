@@ -1,0 +1,91 @@
+NEXO ANDINO CAPITAL S.A.C.
+DOCUMENTO: MANUAL OPERATIVO DE SUSCRIPCIONES, RESCATES Y ATENCIÓN
+Código documental: NAC-OPS-004
+Vigencia: 01 de abril de 2026
+Moneda operativa principal: PEN
+
+1. ALCANCE
+
+Este manual regula el procesamiento de suscripciones, rescates, transferencias entre estrategias,
+actualizaciones de datos del cliente y atención de incidentes. Aplica a NAC-RF, NAC-MX, NAC-ALT
+y NAC-MD.
+
+2. CANALES AUTORIZADOS
+
+Portal digital: disponible para clientes patrimoniales y empresas habilitadas.
+Asesores: canal asistido para instrucciones firmadas, validación de perfil y consultas complejas.
+API corporativa: canal para clientes institucionales con integración aprobada.
+
+Las instrucciones recibidas por correo electrónico no se ejecutan hasta que sean confirmadas en
+un canal autorizado.
+
+3. HORARIOS DE CORTE
+
+NAC-RF:
+- Suscripciones recibidas hasta las 13:00 se procesan con valor cuota del mismo día hábil.
+- Rescates recibidos hasta las 12:00 se liquidan normalmente en T+1.
+
+NAC-MX:
+- Suscripciones y rescates recibidos hasta las 12:00 se procesan con valor cuota del mismo día.
+- La liquidación estándar de rescates es T+2.
+
+NAC-ALT:
+- Las ventanas de suscripción son mensuales.
+- Los rescates requieren aviso previo de 90 días y están sujetos a disponibilidad de liquidez.
+- El Comité de Inversiones puede aplicar prorrateo cuando las solicitudes superen el 5% del
+  patrimonio del fondo en una misma ventana.
+
+NAC-MD:
+- Los plazos dependen del activo subyacente y del contrato del mandato.
+- Toda instrucción superior a PEN 1,0 millón requiere doble validación.
+
+4. CONTROLES DE CLIENTE Y CUMPLIMIENTO
+
+No se procesa una operación cuando:
+- El expediente KYC está vencido.
+- La cuenta bancaria de destino no está registrada.
+- Existe una alerta de sanciones, fraude o suplantación sin resolver.
+- La operación contradice el perfil de riesgo y no existe aceptación expresa.
+- El origen de fondos requiere documentación adicional.
+
+La actualización ordinaria de KYC es anual para clientes de riesgo alto y cada dos años para
+riesgo bajo o medio. Cumplimiento puede reducir el plazo según el comportamiento transaccional.
+
+5. NIVELES DE SERVICIO
+
+- Confirmación de recepción: máximo 15 minutos en horario hábil.
+- Validación automática de instrucciones completas: máximo 5 minutos.
+- Revisión manual estándar: máximo 4 horas hábiles.
+- Respuesta inicial a reclamos: máximo 1 día hábil.
+- Resolución de incidentes operativos de prioridad alta: máximo 8 horas.
+- Entrega de estado de cuenta corregido: máximo 2 días hábiles.
+
+6. EXCEPCIONES Y ESCALAMIENTO
+
+Prioridad alta:
+- Doble cargo.
+- Rescate enviado a una cuenta incorrecta.
+- Indisponibilidad total del portal por más de 30 minutos.
+- Diferencia de valor cuota superior a 0,25%.
+- Sospecha de fraude o acceso no autorizado.
+
+Las excepciones de prioridad alta se escalan a Operaciones, Tecnología, Riesgos y Cumplimiento.
+Finanzas participa cuando existe impacto contable o necesidad de compensación.
+
+7. CONCILIACIÓN
+
+Operaciones concilia diariamente:
+- Saldos bancarios.
+- Movimientos del custodio.
+- Unidades emitidas y rescatadas.
+- Comisiones.
+- Operaciones pendientes y rechazadas.
+
+Toda diferencia no resuelta al cierre se registra en el libro de incidentes y se asigna a un
+responsable con fecha límite.
+
+8. INDICADORES DEL PRIMER SEMESTRE DE 2026
+
+Durante enero-junio de 2026 se procesaron 18.420 instrucciones. La tasa promedio de procesamiento
+automático fue 92,4% y la tasa de fallas operativas fue 0,7%. El canal digital concentró 54% de las
+instrucciones, los asesores 31% y la API corporativa 15%.
