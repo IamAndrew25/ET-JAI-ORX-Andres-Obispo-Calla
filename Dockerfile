@@ -11,11 +11,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ ./app/
 COPY data/seed/ ./data/seed/
 COPY scripts/ ./scripts/
+COPY start.sh ./start.sh
 
 RUN mkdir -p data/uploads data/chroma
 
-RUN chmod +x scripts/*.py 2>/dev/null || true
+RUN chmod +x scripts/*.py start.sh 2>/dev/null || true
 
+# Exponer el puerto de Uvicorn
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Comando que levanta la API e indexa los docs automaticamente
+CMD ["sh", "start.sh"]
