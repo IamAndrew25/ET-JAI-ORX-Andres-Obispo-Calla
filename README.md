@@ -107,4 +107,4 @@ pytest tests/ -v
 
 ## Video demostrativo
 
-[LINK_AL_VIDEO_AQUI]
+*(En proceso de grabación - Se actualizará con el link de Google Drive a la brevedad)*
