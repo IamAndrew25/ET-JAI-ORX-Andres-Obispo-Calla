@@ -1,9 +1,14 @@
 #!/bin/sh
-# Levantar Uvicorn en background
 uvicorn app.main:app --host 0.0.0.0 --port 8000 &
+UVICORN_PID=$!
 
-# Esperar y indexar los 6 documentos la primera vez
 python scripts/seed_on_start.py
+SEED_EXIT=$?
 
-# Traer el proceso de Uvicorn al frente para que el contenedor no muera
-wait
+if [ $SEED_EXIT -ne 0 ]; then
+    echo "Fallo la indexacion. Cerrando API."
+    kill $UVICORN_PID
+    exit 1
+fi
+
+wait $UVICORN_PID

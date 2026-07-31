@@ -3,8 +3,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     gemini_api_key: str
-    llm_model: str = "gemini-2.0-flash"
-    embedding_model: str = "text-embedding-004"
+    llm_model: str = "models/gemini-2.5-flash"
+    embedding_model: str = "models/gemini-embedding-001"
     chroma_path: str = "./data/chroma"
     upload_path: str = "./data/uploads"
     chunk_size: int = 800

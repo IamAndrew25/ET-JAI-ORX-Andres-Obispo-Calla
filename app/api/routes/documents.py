@@ -15,10 +15,6 @@ ALLOWED_EXTENSIONS = {".txt", ".md", ".pdf"}
 
 @router.post("/documents", response_model=DocumentUploadResponse)
 async def upload_document(file: UploadFile = File(...)):
-    """
-    Carga un documento en TXT, Markdown o PDF.
-    El archivo se guarda localmente para despues ser indexado.
-    """
     suffix = Path(file.filename).suffix.lower()
 
     if suffix not in ALLOWED_EXTENSIONS:
@@ -36,21 +32,25 @@ async def upload_document(file: UploadFile = File(...)):
         content = await file.read()
         f.write(content)
 
+    try:
+        vectorstore = get_vectorstore()
+        _, chunks_created, _ = index_documents_to_chroma([file_path], vectorstore)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Archivo subido pero fallo la indexacion: {str(e)}"
+        )
+
     return DocumentUploadResponse(
         document_id=document_id,
         filename=file.filename,
         format=suffix.lstrip("."),
-        status="uploaded",
+        status="indexed",
     )
 
 
 @router.post("/documents/index", response_model=IndexResponse)
 async def index_documents(request: IndexRequest = None):
-    """
-    Indexa documentos en la base vectorial.
-    Si no se especifican document_ids, indexa todos los archivos en data/uploads
-    y los 6 documentos seed de data/seed.
-    """
     upload_path = Path(settings.upload_path)
     seed_path = Path("data/seed")
 

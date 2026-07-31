@@ -15,7 +15,7 @@ def test_subir_documento_md_exitoso():
     assert "filename" in data
     assert data["filename"] == "test.md"
     assert data["format"] == "md"
-    assert data["status"] == "uploaded"
+    assert data["status"] == "indexed"
 
 
 def test_subir_documento_invalido_rechazado():
