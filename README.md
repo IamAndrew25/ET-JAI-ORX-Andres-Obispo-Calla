@@ -60,6 +60,7 @@ Editar `.env` y completar `GEMINI_API_KEY` con tu API key de Google Gemini:
 # https://aistudio.google.com/apikey
 
 GEMINI_API_KEY=AIza...tu_key_aqui...
+API_KEY=una-clave-secreta-larga
 ```
 
 Los demas valores ya estan pre-configurados con los modelos correctos. **No los cambies a menos que sepas lo que haces.**
@@ -114,6 +115,7 @@ curl http://localhost:8000/health
 # Test pregunta
 curl -X POST http://localhost:8000/questions \
   -H "Content-Type: application/json" \
+  -H "X-API-Key: una-clave-secreta-larga" \
   -d '{"question": "Cual es el patrimonio total administrado al 30/06/2026?"}'
 ```
 
@@ -124,6 +126,8 @@ Respuesta esperada: `PEN 512,0 millones` con las fuentes citadas.
 | Variable | Descripcion | Default |
 |---|---|---|
 | `GEMINI_API_KEY` | API key de Google Gemini (**obligatoria**) | - |
+| `API_KEY` | Clave requerida en `X-API-Key` para documentos y preguntas (**obligatoria**) | - |
+| `CORS_ORIGINS` | Origenes CORS permitidos (lista JSON) | `["http://localhost:3000"]` |
 | `LLM_MODEL` | Modelo de chat | `models/gemini-2.5-flash` |
 | `EMBEDDING_MODEL` | Modelo de embeddings | `models/gemini-embedding-001` |
 | `CHROMA_PATH` | Ruta de persistencia de Chroma | `./data/chroma` |
@@ -131,6 +135,7 @@ Respuesta esperada: `PEN 512,0 millones` con las fuentes citadas.
 | `CHUNK_SIZE` | Tamano de chunk (caracteres) | `800` |
 | `CHUNK_OVERLAP` | Overlap entre chunks | `100` |
 | `TOP_K` | Chunks recuperados por consulta | `6` |
+| `MAX_UPLOAD_BYTES` | Tamano maximo de archivo subido | `10485760` |
 
 ## Pruebas automatizadas
 
@@ -139,10 +144,12 @@ source venv/bin/activate
 pytest tests/ -v
 ```
 
-5 tests con mocks (sin consumir tokens de Gemini):
-- `test_health.py`: 2 tests de salud de la API
-- `test_documents.py`: 2 tests de subida de documentos
-- `test_questions.py`: 1 test del flujo RAG completo (mock del LLM)
+19 tests deterministas con mocks, sin consumir tokens de Gemini:
+- `test_documents.py`: cargas, autenticación, traversal, límites y fallos de indexado.
+- `test_health.py`: disponibilidad y conteo real de documentos.
+- `test_indexer.py`: IDs estables e indexado idempotente.
+- `test_questions.py`: validación, autenticación y errores internos.
+- `test_seed_on_start.py`: autenticación del indexado automático al iniciar Docker.
 
 ## Endpoints
 

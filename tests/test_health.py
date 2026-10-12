@@ -1,21 +1,26 @@
-from tests.conftest import client
+from unittest.mock import Mock, patch
 
 
-def test_health_responde_200():
-    """El endpoint GET /health debe responder 200 con la estructura correcta."""
-    response = client().get("/health")
+def test_health_returns_chroma_document_count(client):
+    vectorstore = Mock()
+    vectorstore._collection.get.return_value = {
+        "metadatas": [
+            {"document_id": "first"},
+            {"document_id": "first"},
+            {"document_id": "second"},
+        ]
+    }
+
+    with patch("app.api.routes.health.get_vectorstore", return_value=vectorstore):
+        response = client.get("/health")
 
     assert response.status_code == 200
-    data = response.json()
-    assert "status" in data
-    assert "vector_store" in data
-    assert "documents_indexed" in data
-    assert data["status"] == "ok"
+    assert response.json()["documents_indexed"] == 2
 
 
-def test_health_vector_store_ready():
-    """El vector store debe reportar estado 'ready'."""
-    response = client().get("/health")
-    data = response.json()
+def test_health_returns_503_when_chroma_is_unavailable(client):
+    with patch("app.api.routes.health.get_vectorstore", side_effect=RuntimeError("connection refused")):
+        response = client.get("/health")
 
-    assert data["vector_store"] == "ready"
+    assert response.status_code == 503
+    assert response.json()["detail"] == "Vector store unavailable"

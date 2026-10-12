@@ -1,3 +1,4 @@
+import os
 import requests
 import sys
 import time
@@ -26,7 +27,11 @@ def seed_database():
 
     try:
         print("API lista. Iniciando indexacion de documentos semilla...")
-        r = requests.post(SEED_ENDPOINT, timeout=300)
+        api_key = os.environ.get("API_KEY")
+        if not api_key:
+            print("Falta API_KEY para indexar documentos semilla.")
+            return 1
+        r = requests.post(SEED_ENDPOINT, headers={"X-API-Key": api_key}, timeout=300)
         if r.status_code == 200:
             data = r.json()
             if data.get("chunks_created", 0) == 0:

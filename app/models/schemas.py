@@ -1,8 +1,10 @@
-from pydantic import BaseModel, Field
+from uuid import UUID
+
+from pydantic import BaseModel, Field, field_validator
 
 
 class IndexRequest(BaseModel):
-    document_ids: list[str] | None = Field(
+    document_ids: list[UUID] | None = Field(
         default=None, description="IDs de documentos a indexar. Si es None, indexa todos los pendientes."
     )
 
@@ -14,7 +16,15 @@ class IndexResponse(BaseModel):
 
 
 class QuestionRequest(BaseModel):
-    question: str = Field(description="Pregunta en lenguaje natural")
+    question: str = Field(max_length=4000, description="Pregunta en lenguaje natural")
+
+    @field_validator("question")
+    @classmethod
+    def question_must_not_be_blank(cls, value: str) -> str:
+        question = value.strip()
+        if not question:
+            raise ValueError("Question must not be blank")
+        return question
 
 
 class SourceResponse(BaseModel):

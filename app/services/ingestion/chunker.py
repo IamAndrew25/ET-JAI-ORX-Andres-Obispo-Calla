@@ -1,5 +1,5 @@
 import re
-import uuid
+from hashlib import sha256
 
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -32,6 +32,7 @@ def chunk_documents(documents: list[Document]) -> list[Document]:
 
         sections = _split_by_tables(content)
 
+        chunk_index = 0
         for section in sections:
             is_table = section.startswith("|")
 
@@ -46,8 +47,12 @@ def chunk_documents(documents: list[Document]) -> list[Document]:
 
             for split_doc in split_docs:
                 chunk_metadata = split_doc.metadata.copy()
-                chunk_metadata["chunk_id"] = str(uuid.uuid4())
                 chunk_metadata["chunk_type"] = "table" if is_table else "text"
+                chunk_metadata["chunk_id"] = sha256(
+                    f"{chunk_metadata['document_id']}:{chunk_metadata.get('page', 0)}:"
+                    f"{chunk_index}:{split_doc.page_content}".encode("utf-8")
+                ).hexdigest()
+                chunk_index += 1
 
                 chunks.append(Document(
                     page_content=split_doc.page_content,
